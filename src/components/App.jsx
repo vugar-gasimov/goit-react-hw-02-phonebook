@@ -1,16 +1,13 @@
+import React from 'react';
+import { ContactBook } from './Contact-Book/ContactBook';
+import { AppContainer, TitleContainer, ContentContainer } from './App.Styled';
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <AppContainer>
+      <TitleContainer>React homework template</TitleContainer>
+      <ContentContainer>
+        <ContactBook />
+      </ContentContainer>
+    </AppContainer>
   );
 };
