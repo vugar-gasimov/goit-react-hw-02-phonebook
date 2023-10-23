@@ -18,18 +18,25 @@ export class ContactForm extends React.Component {
   handleNewContacts = e => {
     e.preventDefault();
     if (this.state.isNameValid && this.state.isNumberValid) {
-      const newContact = {
-        id: nanoid(),
-        name: this.state.name,
-        number: this.state.number,
-      };
-      this.props.addContact(newContact);
-      this.setState({
-        name: '',
-        number: '',
-        isNameValid: false,
-        isNumberValid: false,
-      });
+      const { name, number } = this.state;
+      if (this.props.isNameExists(name)) {
+        alert('Sorry you already have this name in the phonebook. 😅');
+      } else if (this.props.isNumberExists(number)) {
+        alert('Sorry you already have this number in the phonebook.😉');
+      } else {
+        const newContact = {
+          id: nanoid(),
+          name,
+          number,
+        };
+        this.props.addContact(newContact);
+        this.setState({
+          name: '',
+          number: '',
+          isNameValid: false,
+          isNumberValid: false,
+        });
+      }
     }
   };
   handleNewName = e => {

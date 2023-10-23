@@ -31,6 +31,17 @@ export class App extends React.Component {
     this.setState({ filter });
   };
 
+  isNameExists = name => {
+    return this.state.contacts.some(contact => contact.name === name);
+  };
+  isNumberExists = number => {
+    return this.state.contacts.some(contact => contact.number === number);
+  };
+  handleContactDelete = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
   render() {
     const { contacts, filter } = this.state;
     const filteredData = getFilteredData({ contacts, filter });
@@ -42,13 +53,21 @@ export class App extends React.Component {
           <PhoneBookContainer>
             <PhoneBookTitle>PhoneBook</PhoneBookTitle>
 
-            <ContactForm addContact={this.addContact} />
+            <ContactForm
+              addContact={this.addContact}
+              isNameExists={this.isNameExists}
+              isNumberExists={this.isNumberExists}
+            />
 
             <PhoneBookContactTitle>Contacts</PhoneBookContactTitle>
 
             <Filter setFilter={this.handleFilterChange} filter={filter} />
 
-            <ContactList contacts={filteredData} filter={filter} />
+            <ContactList
+              contacts={filteredData}
+              filter={filter}
+              onDeleteContact={this.handleContactDelete}
+            />
           </PhoneBookContainer>
         </ContentContainer>
       </AppContainer>

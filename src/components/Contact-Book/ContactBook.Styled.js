@@ -20,18 +20,19 @@ export const PhoneBookTitle = styled.h1`
 
 export const PhoneBookInputContainer = styled.div`
   display: flex;
-  align-items: center;
   margin-top: 10px;
   flex-direction: column;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 `;
 
 export const PhoneBookInputLabel = styled.p`
+  display: flex;
   flex: 1;
   font-size: 18px;
   color: #333;
   margin: 0;
-  margin-bottom: 8px;
+  margin-top: 8px;
 `;
 
 export const PhoneBookInput = styled.input`
@@ -45,14 +46,17 @@ export const PhoneBookInput = styled.input`
 
 export const PhoneBookButton = styled.button`
   flex: 1;
+  width: fit-content;
   font-size: 18px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 10px 16px;
+  padding: 8px 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-left: auto;
+  margin-top: 8px;
 
   &:disabled {
     background-color: #ccc;
@@ -79,4 +83,30 @@ export const PhoneBookContactTitle = styled.h2`
   color: #333;
   margin: 0;
   margin-bottom: 16px;
+`;
+
+export const ListItemContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  gap: 10px;
+`;
+
+export const DeleteButton = styled.button`
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
 `;
