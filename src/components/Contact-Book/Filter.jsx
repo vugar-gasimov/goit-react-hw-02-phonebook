@@ -7,19 +7,18 @@ import {
 } from './ContactBook.Styled';
 export const Filter = ({ setFilter, filter }) => {
   const handleFilterInput = e => {
-    const newFilter = e.target.value;
-    setFilter(newFilter);
+    const filter = e.target.value;
+    setFilter(filter);
   };
   return (
     <PhoneBookInputContainer>
-      <PhoneBookInputLabel>Find contacts by name: </PhoneBookInputLabel>
+      <PhoneBookInputLabel>You can filter contacts here: </PhoneBookInputLabel>
       <PhoneBookInput
         value={filter}
-        placeholder="Feel free to filter by name..."
+        placeholder="Feel free to filter contacts..."
         onChange={handleFilterInput}
-        type="text"
         name="filter"
-        title="Filtering contact list by name."
+        title="Filtering contact list by name or number."
       />
     </PhoneBookInputContainer>
   );

@@ -15,7 +15,8 @@ export class ContactForm extends React.Component {
     isNameValid: false,
     isNumberValid: false,
   };
-  handleNewContacts = () => {
+  handleNewContacts = e => {
+    e.preventDefault();
     if (this.state.isNameValid && this.state.isNumberValid) {
       const newContact = {
         id: nanoid(),
@@ -63,7 +64,6 @@ export class ContactForm extends React.Component {
       <PhoneBookInputContainer>
         <PhoneBookInputLabel>Name: </PhoneBookInputLabel>
         <PhoneBookInput
-          type="text"
           name="name"
           // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan."

@@ -8,6 +8,7 @@ import {
   PhoneBookTitle,
   PhoneBookContactTitle,
 } from './Contact-Book/ContactBook.Styled';
+import { getFilteredData } from 'helpers/getFilteredData';
 export class App extends React.Component {
   state = {
     contacts: [
@@ -26,12 +27,13 @@ export class App extends React.Component {
     }));
   };
 
-  updateFilter = newFilter => {
-    this.setState({ filter: newFilter });
+  handleFilterChange = filter => {
+    this.setState({ filter });
   };
 
   render() {
     const { contacts, filter } = this.state;
+    const filteredData = getFilteredData({ contacts, filter });
     return (
       <AppContainer>
         <TitleContainer>React homework template</TitleContainer>
@@ -44,9 +46,9 @@ export class App extends React.Component {
 
             <PhoneBookContactTitle>Contacts</PhoneBookContactTitle>
 
-            <Filter setFilter={this.updateFilter} filter={filter} />
+            <Filter setFilter={this.handleFilterChange} filter={filter} />
 
-            <ContactList contacts={contacts} filter={filter} />
+            <ContactList contacts={filteredData} filter={filter} />
           </PhoneBookContainer>
         </ContentContainer>
       </AppContainer>

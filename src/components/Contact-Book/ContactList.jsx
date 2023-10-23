@@ -5,16 +5,15 @@ import {
 } from './ContactBook.Styled';
 
 import { ContactListItem } from './ContactListItem';
+import { getFilteredData } from 'helpers/getFilteredData';
 
 export class ContactList extends React.Component {
   render() {
     const { contacts, filter } = this.props;
-    const filteredData = contacts.filter(item =>
-      item.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    const filteredData = getFilteredData({ contacts, filter });
     return (
       <PhoneBookInputContainer>
-        ContactList
+        Contact List
         <PhoneBookContactList>
           {filteredData.map(contact => (
             <ContactListItem key={contact.id} contact={contact} />
