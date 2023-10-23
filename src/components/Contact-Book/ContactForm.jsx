@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import {
   PhoneBookInputContainer,
   PhoneBookInputLabel,
@@ -100,3 +100,8 @@ export class ContactForm extends React.Component {
     );
   }
 }
+ContactForm.propTypes = {
+  addContact: PropTypes.func.isRequired,
+  isNameExists: PropTypes.func.isRequired,
+  isNumberExists: PropTypes.func.isRequired,
+};

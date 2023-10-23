@@ -1,5 +1,6 @@
 import React from 'react';
 import { PhoneBookContactItem } from './ContactBook.Styled';
+import PropTypes from 'prop-types';
 
 export function ContactListItem({ contact }) {
   return (
@@ -8,3 +9,9 @@ export function ContactListItem({ contact }) {
     </PhoneBookContactItem>
   );
 }
+ContactListItem.propTypes = {
+  contact: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
+};

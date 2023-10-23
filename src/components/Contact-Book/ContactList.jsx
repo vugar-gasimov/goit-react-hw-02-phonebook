@@ -5,7 +5,7 @@ import {
   ListItemContainer,
   DeleteButton,
 } from './ContactBook.Styled';
-
+import PropTypes from 'prop-types';
 import { ContactListItem } from './ContactListItem';
 import { getFilteredData } from 'helpers/getFilteredData';
 
@@ -34,3 +34,8 @@ export class ContactList extends React.Component {
     );
   }
 }
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filter: PropTypes.string.isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
+};
